@@ -1,0 +1,127 @@
+:root {
+  --text: #252a21;
+  --muted: #667060;
+  --background: #f8f7f2;
+  --green: #486424;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+
+header {
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0.5rem 0;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1;
+}
+
+header > p:last-child {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 170px;
+  gap: 1rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* CSS Grid placement */
+.item-one {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.item-two {
+  grid-column: span 2;
+}
+
+.item-three {
+  grid-row: span 2;
+}
+
+.item-five {
+  grid-column: span 2;
+}
+
+@media (max-width: 700px) {
+  main {
+    padding: 2.5rem 0;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 160px;
+  }
+
+  .item-one,
+  .item-two,
+  .item-three,
+  .item-five {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .item-one {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 450px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .item-one {
+    grid-column: auto;
+  }
+
+  .gallery-item {
+    min-height: 250px;
+  }
+}
